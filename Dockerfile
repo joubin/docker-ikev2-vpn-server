@@ -12,6 +12,8 @@ RUN (cd /etc && ln -s /config/ipsec.secrets .)
 ADD ./etc/* /etc/
 ADD ./bin/* /usr/bin/
 
+RUN echo  ": PSK \"`openssl rand -base64 24`\"" > /etc/ipsec.secrets
+
 VOLUME /etc
 VOLUME /config
 
